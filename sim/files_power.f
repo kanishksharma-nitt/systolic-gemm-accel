@@ -1,0 +1,10 @@
+../rtl/third_party/verilog-axi/rtl/axil_reg_if.v
+../rtl/third_party/verilog-axi/rtl/axil_reg_if_rd.v
+../rtl/third_party/verilog-axi/rtl/axil_reg_if_wr.v
+../rtl/clkgate.v
+../rtl/mac_pe.sv
+../rtl/systolic_array.sv
+../rtl/requant.sv
+../rtl/axil_regs.sv
+../rtl/accel_top.sv
+../tb/tb_power.sv

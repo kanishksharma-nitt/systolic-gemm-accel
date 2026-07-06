@@ -1,0 +1,29 @@
+# Yosys synthesis to the open SkyWater sky130_fd_sc_hd standard-cell
+# library, for the OpenSTA power flow (flow/power.tcl).
+#
+# Get the liberty file (see `make fetch_lib`):
+#   https://github.com/google/skywater-pdk-libs-sky130_fd_sc_hd
+#   -> timing/sky130_fd_sc_hd__tt_025C_1v80.lib  into flow/lib/
+#
+# Run: yosys flow/synth.ys   (from the repo root)
+
+read_verilog rtl/third_party/verilog-axi/rtl/axil_reg_if.v
+read_verilog rtl/third_party/verilog-axi/rtl/axil_reg_if_rd.v
+read_verilog rtl/third_party/verilog-axi/rtl/axil_reg_if_wr.v
+read_verilog -sv rtl/clkgate.v
+read_verilog -sv rtl/mac_pe.sv
+read_verilog -sv rtl/systolic_array.sv
+read_verilog -sv rtl/requant.sv
+read_verilog -sv rtl/axil_regs.sv
+read_verilog -sv rtl/accel_top.sv
+
+hierarchy -check -top accel_top
+proc; opt; fsm; opt; memory; opt   # memory (with mapping) -> plain FFs+muxes for liberty mapping
+
+techmap; opt
+dfflibmap -liberty flow/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc      -liberty flow/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt_clean
+
+stat -liberty flow/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr flow/netlist.v

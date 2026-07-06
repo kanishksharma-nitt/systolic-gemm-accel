@@ -1,0 +1,41 @@
+name: gemm-accel-ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  sim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+
+      - name: Regenerate golden vectors (determinism check)
+        working-directory: sim
+        run: make golden && git diff --exit-code ../test/cases.mem
+
+      - name: Run self-checking regression
+        working-directory: sim
+        run: make run
+
+      - name: Upload waveforms
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: accel-waves
+          path: sim/*.vcd
+          if-no-files-found: ignore
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Verilator
+        run: sudo apt-get update && sudo apt-get install -y verilator
+      - name: Lint RTL
+        working-directory: sim
+        run: make lint

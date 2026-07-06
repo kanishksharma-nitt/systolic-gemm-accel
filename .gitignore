@@ -1,0 +1,7 @@
+sim/*.vvp
+sim/*.vcd
+**/*.vcd
+__pycache__/
+flow/lib/
+flow/netlist.v
+docs/

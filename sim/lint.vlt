@@ -1,0 +1,14 @@
+`verilator_config
+// Documented lint waivers -- everything else must be clean under -Wall.
+
+// Third-party code (alexforencich verilog-axi, vendored): upstream WIDTH
+// style in its response-code assignment; not ours to edit.
+lint_off -rule WIDTH -file "*third_party*"
+
+// Clock gating necessarily creates logic Verilator's two-state scheduler
+// flags as a potential cycle (enable -> latch -> gated clock -> registers
+// that feed the enable). The structure is glitch-free by construction and
+// asserted at runtime in tb_accel (enable moves only while clk is low,
+// gated edges coincide with clk edges).
+lint_off -rule UNOPTFLAT -file "*clkgate.v"
+lint_off -rule UNOPTFLAT -file "*accel_top.sv"

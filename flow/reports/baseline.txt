@@ -1,0 +1,40 @@
+total_toggles 198073
+
+clock nets (x fanout = clock-tree activity):
+          1985  tb_power.dut.u_regs.clk
+
+per-hierarchy:
+        198073  tb_power.dut
+        105196  tb_power.dut.u_array
+         14843  tb_power.dut.g_req[1]
+         14534  tb_power.dut.g_req[0]
+         14413  tb_power.dut.g_req[2]
+         14023  tb_power.dut.g_req[3]
+         11125  tb_power.dut.u_regs
+
+top nets:
+         10781  tb_power.dut.col_psum
+         10781  tb_power.dut.u_array.col_psum
+          3791  tb_power.dut.g_req[1].u_requant.prod
+          3718  tb_power.dut.g_req[0].u_requant.prod
+          3694  tb_power.dut.g_req[2].u_requant.prod
+          3611  tb_power.dut.g_req[1].u_requant.rectified
+          3611  tb_power.dut.g_req[1].u_requant.shifted
+          3610  tb_power.dut.g_req[3].u_requant.prod
+          3515  tb_power.dut.g_req[0].u_requant.rectified
+          3515  tb_power.dut.g_req[0].u_requant.shifted
+          3473  tb_power.dut.g_req[2].u_requant.rectified
+          3473  tb_power.dut.g_req[2].u_requant.shifted
+          3380  tb_power.dut.g_req[3].u_requant.rectified
+          3380  tb_power.dut.g_req[3].u_requant.shifted
+          3048  tb_power.dut.buf_wdata
+          3048  tb_power.dut.u_regs.buf_wdata
+          3048  tb_power.dut.s_axil_wdata
+          3048  tb_power.dut.u_regs.s_axil_wdata
+          2745  tb_power.dut.rq_q
+          2658  tb_power.dut.u_array.g_row[2].g_col[3].u_pe.psum_out
+          2658  tb_power.dut.u_array.g_row[3].g_col[3].u_pe.psum_in
+          2595  tb_power.dut.u_array.g_row[1].g_col[3].u_pe.psum_out
+          2595  tb_power.dut.u_array.g_row[2].g_col[3].u_pe.psum_in
+          2580  tb_power.dut.u_array.g_row[2].g_col[0].u_pe.psum_out
+          2580  tb_power.dut.u_array.g_row[3].g_col[0].u_pe.psum_in

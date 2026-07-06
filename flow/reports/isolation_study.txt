@@ -1,0 +1,44 @@
+total_toggles 274258
+
+clock nets (x fanout = clock-tree activity):
+           288  tb_power.dut.u_cg_array.gclk
+           222  tb_power.dut.u_cg_req.gclk
+          2445  tb_power.dut.u_regs.u_reg_if.axil_reg_if_wr_inst.clk
+
+per-hierarchy:
+        274258  tb_power.dut
+        139308  tb_power.dut.u_array
+         39291  tb_power.dut.u_regs
+         17743  tb_power.dut.g_req[1]
+         17494  tb_power.dut.g_req[2]
+         17440  tb_power.dut.g_req[0]
+         17185  tb_power.dut.g_req[3]
+           294  tb_power.dut.u_cg_array
+           246  tb_power.dut.u_cg_req
+
+top nets:
+         11799  tb_power.dut.col_psum
+         11799  tb_power.dut.u_array.col_psum
+          3874  tb_power.dut.g_req[1].u_requant.prod
+          3817  tb_power.dut.g_req[2].u_requant.prod
+          3807  tb_power.dut.g_req[0].u_requant.prod
+          3766  tb_power.dut.g_req[3].u_requant.prod
+          3703  tb_power.dut.g_req[1].u_requant.rectified
+          3703  tb_power.dut.g_req[1].u_requant.shifted
+          3613  tb_power.dut.g_req[2].u_requant.rectified
+          3613  tb_power.dut.g_req[2].u_requant.shifted
+          3610  tb_power.dut.g_req[0].u_requant.rectified
+          3610  tb_power.dut.g_req[0].u_requant.shifted
+          3563  tb_power.dut.g_req[3].u_requant.rectified
+          3563  tb_power.dut.g_req[3].u_requant.shifted
+          3048  tb_power.dut.buf_wdata
+          3048  tb_power.dut.u_regs.buf_wdata
+          3048  tb_power.dut.u_regs.u_reg_if.axil_reg_if_wr_inst.s_axil_wdata_next
+          3048  tb_power.dut.s_axil_wdata
+          3048  tb_power.dut.u_regs.s_axil_wdata
+          3048  tb_power.dut.u_regs.u_reg_if.s_axil_wdata
+          3048  tb_power.dut.u_regs.u_reg_if.axil_reg_if_wr_inst.s_axil_wdata
+          3048  tb_power.dut.u_regs.wr_data
+          3048  tb_power.dut.u_regs.u_reg_if.reg_wr_data
+          3048  tb_power.dut.u_regs.u_reg_if.axil_reg_if_wr_inst.reg_wr_data
+          3048  tb_power.dut.u_regs.u_reg_if.axil_reg_if_wr_inst.s_axil_wdata_reg
